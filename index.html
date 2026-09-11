@@ -60,6 +60,27 @@
             border-radius: 8px;
         }
 
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .about-photo {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            .about-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
         footer {
             background: #123c69;
             color: white;
@@ -80,12 +101,15 @@
 <section>
     <h2>About Me</h2>
 
-    <p>
-        I am a B.Tech Artificial Intelligence and Data Science student
-        interested in Cloud Computing and IT technologies.
-        I am passionate about learning cloud infrastructure,
-        AWS and automation technologies.
-    </p>
+    <div class="about-content">
+        <img class="about-photo" src="professional-photo.jpeg" alt="Professional photo of Pooja Sri">
+        <p>
+            I am a B.Tech Artificial Intelligence and Data Science student
+            interested in Cloud Computing and IT technologies.
+            I am passionate about learning cloud infrastructure,
+            AWS and automation technologies.
+        </p>
+    </div>
 </section>
 
 <section>
