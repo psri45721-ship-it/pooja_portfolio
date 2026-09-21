@@ -1,181 +1,581 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cloud Computing Portfolio</title>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My Portfolio</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #eef5ff;
-            color: #222;
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        color: #222;
+    }
+
+    /* Navigation */
+    nav {
+        background: #102a43;
+        padding: 18px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 12px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #5eead4;
+    }
+
+    /* Home */
+    .home {
+        min-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #dbeafe, #ecfeff);
+    }
+
+    .home-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        text-align: left;
+    }
+
+    .profile-wrap {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 5px solid white;
+        box-shadow: 0 10px 25px rgba(16, 42, 67, 0.15);
+        background: #dbeafe;
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .home h1 {
+        font-size: 50px;
+        color: #102a43;
+    }
+
+    .home h2 {
+        margin: 15px 0;
+        color: #2563eb;
+    }
+
+    .home p {
+        font-size: 18px;
+        margin: 8px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 25px;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+
+    .btn:hover {
+        background: #174ea6;
+    }
+
+    /* Sections */
+    section {
+        padding: 70px 10%;
+    }
+
+    .title {
+        text-align: center;
+        color: #102a43;
+        margin-bottom: 35px;
+        font-size: 32px;
+    }
+
+    /* About */
+    .about {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #ddd;
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    .about p {
+        margin-bottom: 15px;
+    }
+
+    /* Skills */
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .skill {
+        background: white;
+        padding: 18px 25px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px #ddd;
+        font-weight: bold;
+        color: #2563eb;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #ddd;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+    }
+
+    .card h3 {
+        color: #2563eb;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+
+    /* Contact */
+    .contact {
+        background: white;
+        text-align: center;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #ddd;
+    }
+
+    .contact a {
+        color: #2563eb;
+        text-decoration: none;
+    }
+
+    .contact a:hover {
+        text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+        background: #102a43;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+
+        nav a {
+            display: inline-block;
+            margin: 7px;
+            font-size: 14px;
         }
 
-        header {
-            background: #123c69;
-            color: white;
+        .home-content {
             text-align: center;
-            padding: 40px 20px;
         }
 
-        header h1 {
-            font-size: 40px;
+        .home h1 {
+            font-size: 38px;
         }
 
-        header p {
-            font-size: 20px;
+        .home h2 {
+            font-size: 22px;
         }
 
-        section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px #ccc;
+        .home p {
+            font-size: 16px;
         }
+    }
+</style>
 
-        h2 {
-            color: #123c69;
-        }
+</head><body><!-- Navigation -->
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+<nav>
 
-        .skill {
-            background: #dbeafe;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
 
-        .project {
-            background: #f1f5f9;
-            padding: 20px;
-            margin-top: 15px;
-            border-left: 5px solid #123c69;
-            border-radius: 8px;
-        }
+</nav>
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
 
-        .about-photo {
-            width: 180px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
+<!-- Home -->
 
-        @media (max-width: 600px) {
-            .about-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+<section class="home" id="home">
 
-        footer {
-            background: #123c69;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
-</head>
+    <div class="home-content">
 
-<body>
+        <div class="profile-wrap">
+            <img class="profile-image"
+                src="professional-photo.jpg"
+                alt="Professional portrait">
+        </div>
 
-<header>
-    <h1>pooja sri</h1>
-    <p>Cloud Computing Enthusiast</p>
-    <p>B.Tech Artificial Intelligence &amp; Data Science</p>
-</header>
+        <div>
+            <h1>Poojasri .S</h1>
 
-<section>
-    <h2>About Me</h2>
+            <h2>Cloud Computing Enthusiast ☁️</h2>
 
-    <div class="about-content">
-        <img class="about-photo" src="professional-photo.jpeg" alt="Professional photo of Pooja Sri">
-        <p>
-            I am a B.Tech Artificial Intelligence and Data Science student
-            interested in Cloud Computing and IT technologies.
-            I am passionate about learning cloud infrastructure,
-            AWS and automation technologies.
-        </p>
+            <p>
+                B.Tech Artificial Intelligence & Data Science Student
+            </p>
+
+            <p>
+                Interested in Cloud Computing, AWS and Technology
+            </p>
+
+            <a href="#contact" class="btn">
+                Contact Me
+            </a>
+        </div>
+
     </div>
+
 </section>
 
-<section>
-    <h2>My Skills</h2>
+
+<!-- About -->
+
+<section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about">
+
+        <p>
+            Hello! I am a B.Tech Artificial Intelligence and Data Science
+            student with a strong interest in Cloud Computing and
+            modern IT technologies.
+        </p>
+
+        <p>
+            I am currently developing my skills in AWS, Cloud Computing,
+            Linux, Terraform, Python, SQL, HTML, CSS and JavaScript.
+        </p>
+
+        <p>
+            I enjoy building practical projects and learning new
+            technologies through hands-on experience.
+        </p>
+
+        <p>
+            My goal is to build a successful career in the IT industry
+            and work on real-world technology projects.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Skills -->
+
+<section id="skills">
+
+    <h2 class="title">My Skills</h2>
 
     <div class="skills">
-        <div class="skill">Cloud Computing</div>
+
+        <div class="skill">☁️ Cloud Computing</div>
+
         <div class="skill">AWS</div>
+
         <div class="skill">Terraform</div>
+
         <div class="skill">Linux</div>
+
         <div class="skill">Python</div>
+
         <div class="skill">SQL</div>
-        <div class="skill">Git &amp; GitHub</div>
+
+        <div class="skill">HTML</div>
+
+        <div class="skill">CSS</div>
+
+        <div class="skill">JavaScript</div>
+
+        <div class="skill">Git & GitHub</div>
+
     </div>
+
 </section>
 
-<section>
-    <h2>My Projects</h2>
 
-    <div class="project">
-        <h3>Cloud Infrastructure Planning</h3>
+<!-- Projects -->
+
+<section id="projects">
+
+    <h2 class="title">My Projects</h2>
+
+    <div class="cards">
+
+
+        <!-- Dengue Project -->
+
+        <div class="card">
+
+            <h3>🦟 Dengue Awareness & Symptom Checker</h3>
+
+            <p>
+                Developed a web-based Dengue Awareness and Symptom
+                Checker that allows users to enter basic information
+                and select symptoms for an educational health screening.
+            </p>
+
+            <p>
+                <b>Technologies:</b>
+                HTML, CSS, JavaScript
+            </p>
+
+            <p>
+                <b>Features:</b>
+                Symptom checking, warning symptom detection,
+                and basic health awareness information.
+            </p>
+
+        </div>
+
+
+        <!-- Weather Project -->
+
+        <div class="card">
+
+            <h3>🌦️ Weather Condition & Rain Checker</h3>
+
+            <p>
+                Developed a web application that allows users to
+                search for a city and view current weather conditions,
+                temperature and today's rain information.
+            </p>
+
+            <p>
+                <b>Technologies:</b>
+                HTML, CSS, JavaScript, Open-Meteo API
+            </p>
+
+            <p>
+                <b>Features:</b>
+                City search, temperature, weather condition,
+                rain probability and rainfall information.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Certificates -->
+
+<section id="certificates">
+
+    <h2 class="title">Certificates</h2>
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>☁️ Cloud Computing Certificate</h3>
+
+            <p>
+                Completed learning and training related to
+                Cloud Computing fundamentals.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🤖 AI & Data Science Certificate</h3>
+
+            <p>
+                Completed learning activities related to
+                Artificial Intelligence and Data Science.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💻 Technical Training</h3>
+
+            <p>
+                Participated in technical training and
+                skill development programs.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Achievements -->
+
+<section id="achievements">
+
+    <h2 class="title">Achievements</h2>
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>🏆 Cloud Computing Learning</h3>
+
+            <p>
+                Developed practical knowledge of cloud computing
+                and cloud infrastructure.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏆 Project Development</h3>
+
+            <p>
+                Developed practical web projects including a
+                Dengue Awareness Symptom Checker and a
+                Weather Condition Checker.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏆 Technical Development</h3>
+
+            <p>
+                Continuously improving technical skills through
+                projects, courses and hands-on practice.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section id="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <div class="contact">
+
+        <p>📧 Email</p>
 
         <p>
-            Designed a cloud infrastructure plan for an
-            E-Commerce application using AWS services.
+            <a href="mailto:yourmail@gmail.com">
+                yourmail@gmail.com
+            </a>
         </p>
 
-        <b>Technologies:</b>
-        AWS, EC2, S3, RDS, VPC, IAM
-    </div>
+        <br>
 
-    <div class="project">
-        <h3>Cloud Migration &amp; Optimization</h3>
+        <p>📱 Phone</p>
 
         <p>
-            Created a cloud migration strategy and explored
-            performance and cost optimization techniques.
+            +91 XXXXX XXXXX
         </p>
 
-        <b>Technologies:</b>
-        Cloud Computing, AWS, Terraform
+        <br>
+
+        <p>📍 Location</p>
+
+        <p>
+            Tamil Nadu, India
+        </p>
+
+        <br>
+
+        <p>💻 GitHub</p>
+
+        <p>
+            <a href="https://github.com/" target="_blank">
+                My GitHub
+            </a>
+        </p>
+
+        <br>
+
+        <p>🔗 LinkedIn</p>
+
+        <p>
+            <a href="https://www.linkedin.com/" target="_blank">
+                My LinkedIn
+            </a>
+        </p>
+
     </div>
+
 </section>
 
-<section>
-    <h2>Education</h2>
 
-    <h3>B.Tech Artificial Intelligence and Data Science</h3>
-
-    <p>
-        Currently pursuing B.Tech in Artificial Intelligence
-        and Data Science.
-    </p>
-</section>
-
-<section>
-    <h2>Contact</h2>
-
-    <p>Email: psri45721@gmail.com</p>
-    <p>Phone: +91 XXXXX XXXXX</p>
-    <p>Tamil Nadu, India</p>
-</section>
+<!-- Footer -->
 
 <footer>
-    <p>© 2026 pooja sri | Cloud Computing Portfolio</p>
+ 
+    <p>
+        © 2026 Poojasri .S | Cloud Computing Portfolio
+    </p>
+
 </footer>
 
-</body>
-</html>
+</body></html>
